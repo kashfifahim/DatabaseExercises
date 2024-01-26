@@ -1,0 +1,37 @@
+1.4.24 -- Ch. 9 Application Development
+
+What is the middle layer? Business logic | Could be like a router | multiple middle layers
+Job is to handle different aspects
+
+History of the Architecture
+- Terminals
+- Desktop PCs
+- Web browsers
+
+Ports for HTTP, HTTPS, MySQL (3306), Flask(5050)
+
+HTML Source Text fpr a table, and form
+
+What are the Parts of a table
+
+What are Web servers
+What is the 3 layers
+What is the 2 layers
+
+What does it mean for HTTP to be connectionless?
+
+What is a session and what is a cookie?
+
+What is servlets?
+
+Ch. 3
+
+What is Set Membership?
+Set comparision
+
+-Modification of the database
+  - Deletion
+
+
+Start collecting queries from chapter 3
+Tomorrow bring in file with bunch of queries

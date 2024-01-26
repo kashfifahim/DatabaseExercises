@@ -1,0 +1,11 @@
+Package    Version
+---------- -------
+pip        23.2.1
+setuptools 68.2.0
+texttable  1.7.0
+wheel      0.41.2
+
+texttable~=1.7.0
+matplotlib~=3.8.2
+numpy~=1.26.3
+PyMySQL~=1.1.0

@@ -1,0 +1,81 @@
+DROP FUNCTION IF EXISTS volume_sphere;
+/* [4b] Create a MySQL function volume_sphere(radius) that computes the volume of a sphere of given radius */
+CREATE FUNCTION volume_sphere(radius DOUBLE)
+RETURNS DOUBLE
+DETERMINISTIC
+BEGIN
+    SET @volume = (4.0/3.0) * 3.14159265359 * radius * radius * radius;
+    RETURN @volume;-
+END;
+
+
+drop table if exists circle;
+/* [5a] Create a table circle with columns circle_id, total_points, circle_points, pi_estimate */
+CREATE TABLE circle (
+    circle_id INT AUTO_INCREMENT PRIMARY KEY,
+    total_points INT,
+    circle_points INT,
+    pi_estimate DOUBLE
+);
+
+drop table if exists point;
+/* [5b] Create a table point with columns point_id, circle_id, x, y. */
+CREATE TABLE point (
+    point_id INT AUTO_INCREMENT PRIMARY KEY,
+    circle_id INT,
+    x DOUBLE,
+    y DOUBLE,
+    FOREIGN KEY (circle_id) REFERENCES circle(circle_id)
+);
+
+/* [5c] Create a stored procedure random_points(n) that generates n random points (x, y) where both x and y are in the interval (-1, 1). The MySQL function rand() returns a random number between 0 and 1. To get a random number in (-1, 1), use 2 * rand() - 1. SET @x =  2 * rand() - 1 and SET @y = 2 * rand() - 1. Then insert those as a row in table point. */
+DELIMITER $$
+
+CREATE PROCEDURE random_points(IN num_points INT, IN linked_circle_id INT)
+BEGIN
+    DECLARE i INT DEFAULT 0;
+    DECLARE rand_x DOUBLE;
+    DECLARE rand_y DOUBLE;
+
+    WHILE i < num_points DO
+        SET rand_x = 2 * RAND() - 1;
+        SET rand_y = 2 * RAND() - 1;
+
+        INSERT INTO point (circle_id, x, y) VALUES (linked_circle_id, rand_x, rand_y);
+
+        SET i = i + 1;
+    END WHILE;
+END $$
+
+DELIMITER ;
+
+/*  [5d] Repeat this in a loop sufficiently many times. */
+DELIMITER //
+
+CREATE PROCEDURE math_random_points_extended(IN num_points INT, IN linked_circle_id INT, IN max_iterations INT)
+BEGIN
+    DECLARE i INT DEFAULT 0;
+    DECLARE j INT DEFAULT 0;
+    DECLARE rand_x DOUBLE;
+    DECLARE rand_y DOUBLE;
+
+    my_loop: LOOP
+        IF j >= max_iterations THEN
+            LEAVE my_loop;
+        END IF;
+
+        SET rand_x = 2 * RAND() - 1;
+        SET rand_y = 2 * RAND() - 1;
+
+        INSERT INTO point (circle_id, x, y) VALUES (linked_circle_id, rand_x, rand_y);
+
+        SET i = i + 1;
+
+        IF i >= num_points THEN
+            SET i = 0;
+            SET j = j + 1;
+        END IF;
+    END LOOP my_loop;
+END //
+
+DELIMITER ;

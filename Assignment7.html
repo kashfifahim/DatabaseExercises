@@ -1,0 +1,187 @@
+<html><head><meta name="description" content="OutputUtil developed by LT. Executed by /Users/kashfi/PycharmProjects/pythonProject">
+<style>body {
+    background-color: #F0F4F8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1, h3 {
+    color: #005f73;
+    text-align: center;
+}
+.vericaltext {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: top;
+}
+th > a {
+    color: #FFFFFF;
+}
+th {
+    background-color: #005f73;
+    color: #f1faee;
+}
+tr:nth-child(even) {
+    background-color: #a8dadc;
+}
+tr:nth-child(odd) {
+    background-color: #457b9d;
+}</style>
+<script>
+function sortTable(tableId, colNum, colType) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+  table = document.getElementById(tableId);
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[colNum];
+      y = rows[i + 1].getElementsByTagName("td")[colNum];
+      if (colType == 'N') { 
+        if (((dir == "asc") && (Number(x.innerHTML) > Number(y.innerHTML))) ||
+            ((dir == "desc") && (Number(x.innerHTML) < Number(y.innerHTML)))) {
+          shouldSwitch = true;
+          break;
+        }
+      } else {
+        if (((dir == "asc") && (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())) ||
+            ((dir == "desc") && (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()))) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchCount ++;
+    } else {
+     if (switchCount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</head>
+<body><h1>All queries for 'Assignment 7'</h1>
+<h3>Table of Contents</h3>
+<ol><li><a href="#table-[Check]-Show-all-rows">[Check] Show all rows</a>
+</li>
+<li><a href="#table-[Check]-Show-all-rows">[Check] Show all rows</a>
+</li>
+<li><a href="#table-TESTING-AREA-OF-CIRCLE-FUNCTION----WORKED">TESTING AREA OF CIRCLE FUNCTION -- WORKED</a>
+</li>
+<li><a href="#table-TESTING-VOLUME-OF-CIRCLE-FUNCTION----WORKED">TESTING VOLUME OF CIRCLE FUNCTION -- WORKED</a>
+</li>
+<li><a href="#table-Test-5b">Test 5b</a>
+</li>
+</ol>
+<h3>[Check] Show all rows</h3>
+<table id="table-[Check]-Show-all-rows" style="width:100%"><th><a href="javascript:sortTable('table-[Check]-Show-all-rows', 0, 'N')"">shape_id</a>
+</th>
+<th><a href="javascript:sortTable('table-[Check]-Show-all-rows', 1, 'S')"">shape_name</a>
+</th>
+<th><a href="javascript:sortTable('table-[Check]-Show-all-rows', 2, 'S')"">perimeter_formula</a>
+</th>
+<th><a href="javascript:sortTable('table-[Check]-Show-all-rows', 3, 'S')"">area_formula</a>
+</th>
+<tr><td style="text-align:right;">1</td>
+<td style="text-align:left;">Rectangle</td>
+<td style="text-align:left;">2 * Length + 2 * Width</td>
+<td style="text-align:left;">Length * Width</td>
+</tr>
+<tr><td style="text-align:right;">2</td>
+<td style="text-align:left;">Triangle</td>
+<td style="text-align:left;">Length + Length + Length</td>
+<td style="text-align:left;">(Base * Height) / 2</td>
+</tr>
+<tr><td style="text-align:right;">3</td>
+<td style="text-align:left;">Square</td>
+<td style="text-align:left;">Length * 4</td>
+<td style="text-align:left;">Length * Length</td>
+</tr>
+<tr><td style="text-align:right;">4</td>
+<td style="text-align:left;">Circle</td>
+<td style="text-align:left;">2 * π * Radius</td>
+<td style="text-align:left;">π * Radius * Radius</td>
+</tr>
+<tr><td style="text-align:right;">5</td>
+<td style="text-align:left;">Ellipse</td>
+<td style="text-align:left;">π * (Semi-major + Semi-minor)</td>
+<td style="text-align:left;">π * Semi-minor</td>
+</tr>
+<tr><td style="text-align:right;">6</td>
+<td style="text-align:left;">Parallelogram</td>
+<td style="text-align:left;">2 * (Side1 + Side2)</td>
+<td style="text-align:left;">Base * Height</td>
+</tr>
+</table>
+<h3>[Check] Show all rows</h3>
+<table id="table-[Check]-Show-all-rows" style="width:100%"><th><a href="javascript:sortTable('table-[Check]-Show-all-rows', 0, 'N')"">shape_id</a>
+</th>
+<th><a href="javascript:sortTable('table-[Check]-Show-all-rows', 1, 'S')"">shape_name</a>
+</th>
+<th><a href="javascript:sortTable('table-[Check]-Show-all-rows', 2, 'S')"">area_formula</a>
+</th>
+<th><a href="javascript:sortTable('table-[Check]-Show-all-rows', 3, 'S')"">volume_formula</a>
+</th>
+<tr><td style="text-align:right;">1</td>
+<td style="text-align:left;">Cuboid</td>
+<td style="text-align:left;">2 * (lb + bh + hl)</td>
+<td style="text-align:left;">l*b*h</td>
+</tr>
+<tr><td style="text-align:right;">2</td>
+<td style="text-align:left;">Sphere</td>
+<td style="text-align:left;">4 * π * r * r</td>
+<td style="text-align:left;">(4/3) * π * r * r * r</td>
+</tr>
+<tr><td style="text-align:right;">3</td>
+<td style="text-align:left;">Hemisphere</td>
+<td style="text-align:left;">3 * π * r * r</td>
+<td style="text-align:left;">(2/3) * π * r * r * r</td>
+</tr>
+<tr><td style="text-align:right;">4</td>
+<td style="text-align:left;">Cylinder</td>
+<td style="text-align:left;">(2πrh) + (2πrr)</td>
+<td style="text-align:left;">πrrh</td>
+</tr>
+</table>
+<h3>TESTING AREA OF CIRCLE FUNCTION -- WORKED</h3>
+<table id="table-TESTING-AREA-OF-CIRCLE-FUNCTION----WORKED" style="width:100%"><th><a href="javascript:sortTable('table-TESTING-AREA-OF-CIRCLE-FUNCTION----WORKED', 0, 'N')"">math_area_circle(2)</a>
+</th>
+<tr><td style="text-align:right;">12.56</td>
+</tr>
+</table>
+<h3>TESTING VOLUME OF CIRCLE FUNCTION -- WORKED</h3>
+<table id="table-TESTING-VOLUME-OF-CIRCLE-FUNCTION----WORKED" style="width:100%"><th><a href="javascript:sortTable('table-TESTING-VOLUME-OF-CIRCLE-FUNCTION----WORKED', 0, 'N')"">math_volume_sphere(2)</a>
+</th>
+<tr><td style="text-align:right;">33.510321638293334</td>
+</tr>
+</table>
+<h3>Test 5b</h3>
+<table id="table-Test-5b" style="width:100%"><th><a href="javascript:sortTable('table-Test-5b', 0, 'S')"">point_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Test-5b', 1, 'S')"">circle_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Test-5b', 2, 'S')"">x</a>
+</th>
+<th><a href="javascript:sortTable('table-Test-5b', 3, 'S')"">y</a>
+</th>
+<tr><td style="text-align:left;">None</td>
+<td style="text-align:left;">None</td>
+<td style="text-align:left;">None</td>
+<td style="text-align:left;">None</td>
+</tr>
+</table>
+<center><h6>&copy;2024 by Developer • Generated on Jan. 15, 2024 19:04 PM</h6>
+</center>
+</body>
+</html>

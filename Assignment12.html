@@ -1,0 +1,194 @@
+<html><head><meta name="description" content="OutputUtil developed by LT. Executed by /Users/kashfi/PycharmProjects/pythonProject">
+<style>body {
+    background-color: #F0F4F8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1, h3 {
+    color: #005f73;
+    text-align: center;
+}
+.vericaltext {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: top;
+}
+th > a {
+    color: #FFFFFF;
+}
+th {
+    background-color: #005f73;
+    color: #f1faee;
+}
+tr:nth-child(even) {
+    background-color: #a8dadc;
+}
+tr:nth-child(odd) {
+    background-color: #457b9d;
+}</style>
+<script>
+function sortTable(tableId, colNum, colType) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+  table = document.getElementById(tableId);
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[colNum];
+      y = rows[i + 1].getElementsByTagName("td")[colNum];
+      if (colType == 'N') { 
+        if (((dir == "asc") && (Number(x.innerHTML) > Number(y.innerHTML))) ||
+            ((dir == "desc") && (Number(x.innerHTML) < Number(y.innerHTML)))) {
+          shouldSwitch = true;
+          break;
+        }
+      } else {
+        if (((dir == "asc") && (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())) ||
+            ((dir == "desc") && (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()))) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchCount ++;
+    } else {
+     if (switchCount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</head>
+<body><h1>All queries for 'Assignment12'</h1>
+<h3>Table of Contents</h3>
+<ol><li><a href="#table-Select-all-queries-using-IN-clause-without-index">Select all queries using IN clause without index</a>
+</li>
+<li><a href="#table-Select-all-queries-using-OR-clause-without-index">Select all queries using OR clause without index</a>
+</li>
+<li><a href="#table-Select-all-queries-using-LIKE-clause-without-index">Select all queries using LIKE clause without index</a>
+</li>
+<li><a href="#table-Select-all-queries-using-UNION-clause-without-index">Select all queries using UNION clause without index</a>
+</li>
+<li><a href="#table-Select-all-queries-using-IN-clause-with-index">Select all queries using IN clause with index</a>
+</li>
+<li><a href="#table-Select-all-queries-using-OR-clause-with-index">Select all queries using OR clause with index</a>
+</li>
+<li><a href="#table-Select-all-queries-using-LIKE-clause-with-index">Select all queries using LIKE clause with index</a>
+</li>
+<li><a href="#table-Select-all-queries-using-UNION-clause-with-index">Select all queries using UNION clause with index</a>
+</li>
+<li><a href="#table-Find-queries-associated-with-this-assignment">Find queries associated with this assignment</a>
+</li>
+</ol>
+<h3>Select all queries using IN clause without index</h3>
+<table id="table-Select-all-queries-using-IN-clause-without-index" style="width:100%"><th><a href="javascript:sortTable('table-Select-all-queries-using-IN-clause-without-index', 0, 'N')"">count</a>
+</th>
+<tr><td style="text-align:right;">551</td>
+</tr>
+</table>
+<h3>Select all queries using OR clause without index</h3>
+<table id="table-Select-all-queries-using-OR-clause-without-index" style="width:100%"><th><a href="javascript:sortTable('table-Select-all-queries-using-OR-clause-without-index', 0, 'N')"">count</a>
+</th>
+<tr><td style="text-align:right;">551</td>
+</tr>
+</table>
+<h3>Select all queries using LIKE clause without index</h3>
+<table id="table-Select-all-queries-using-LIKE-clause-without-index" style="width:100%"><th><a href="javascript:sortTable('table-Select-all-queries-using-LIKE-clause-without-index', 0, 'N')"">count</a>
+</th>
+<tr><td style="text-align:right;">1986</td>
+</tr>
+</table>
+<h3>Select all queries using UNION clause without index</h3>
+<table id="table-Select-all-queries-using-UNION-clause-without-index" style="width:100%"><th><a href="javascript:sortTable('table-Select-all-queries-using-UNION-clause-without-index', 0, 'S')"">sum(c)</a>
+</th>
+<tr><td style="text-align:left;">551</td>
+</tr>
+</table>
+<h3>Select all queries using IN clause with index</h3>
+<table id="table-Select-all-queries-using-IN-clause-with-index" style="width:100%"><th><a href="javascript:sortTable('table-Select-all-queries-using-IN-clause-with-index', 0, 'N')"">count</a>
+</th>
+<tr><td style="text-align:right;">551</td>
+</tr>
+</table>
+<h3>Select all queries using OR clause with index</h3>
+<table id="table-Select-all-queries-using-OR-clause-with-index" style="width:100%"><th><a href="javascript:sortTable('table-Select-all-queries-using-OR-clause-with-index', 0, 'N')"">count</a>
+</th>
+<tr><td style="text-align:right;">551</td>
+</tr>
+</table>
+<h3>Select all queries using LIKE clause with index</h3>
+<table id="table-Select-all-queries-using-LIKE-clause-with-index" style="width:100%"><th><a href="javascript:sortTable('table-Select-all-queries-using-LIKE-clause-with-index', 0, 'N')"">count</a>
+</th>
+<tr><td style="text-align:right;">1986</td>
+</tr>
+</table>
+<h3>Select all queries using UNION clause with index</h3>
+<table id="table-Select-all-queries-using-UNION-clause-with-index" style="width:100%"><th><a href="javascript:sortTable('table-Select-all-queries-using-UNION-clause-with-index', 0, 'S')"">sum(c)</a>
+</th>
+<tr><td style="text-align:left;">551</td>
+</tr>
+</table>
+<h3>Find queries associated with this assignment</h3>
+<table id="table-Find-queries-associated-with-this-assignment" style="width:100%"><th><a href="javascript:sortTable('table-Find-queries-associated-with-this-assignment', 0, 'N')"">query_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Find-queries-associated-with-this-assignment', 1, 'S')"">query_desc</a>
+</th>
+<th><a href="javascript:sortTable('table-Find-queries-associated-with-this-assignment', 2, 'S')"">query_dur</a>
+</th>
+<tr><td style="text-align:right;">3619</td>
+<td style="text-align:left;">, Select all queries using OR clause with index</td>
+<td style="text-align:left;">0.0006</td>
+</tr>
+<tr><td style="text-align:right;">3617</td>
+<td style="text-align:left;">, Create Index on query table</td>
+<td style="text-align:left;">0.0143</td>
+</tr>
+<tr><td style="text-align:right;">3620</td>
+<td style="text-align:left;">, Select all queries using LIKE clause with index</td>
+<td style="text-align:left;">0.0006</td>
+</tr>
+<tr><td style="text-align:right;">3616</td>
+<td style="text-align:left;">, Select all queries using UNION clause without index</td>
+<td style="text-align:left;">0.0086</td>
+</tr>
+<tr><td style="text-align:right;">3621</td>
+<td style="text-align:left;">, Select all queries using UNION clause with index</td>
+<td style="text-align:left;">0.0006</td>
+</tr>
+<tr><td style="text-align:right;">3618</td>
+<td style="text-align:left;">, Select all queries using IN clause with index</td>
+<td style="text-align:left;">0.0013</td>
+</tr>
+<tr><td style="text-align:right;">3612</td>
+<td style="text-align:left;">, Drop Index on query table</td>
+<td style="text-align:left;">0.0338</td>
+</tr>
+<tr><td style="text-align:right;">3613</td>
+<td style="text-align:left;">, Select all queries using IN clause without index</td>
+<td style="text-align:left;">0.0061</td>
+</tr>
+<tr><td style="text-align:right;">3614</td>
+<td style="text-align:left;">, Select all queries using OR clause without index</td>
+<td style="text-align:left;">0.0030</td>
+</tr>
+<tr><td style="text-align:right;">3615</td>
+<td style="text-align:left;">, Select all queries using LIKE clause without index</td>
+<td style="text-align:left;">0.0012</td>
+</tr>
+</table>
+<center><h6>&copy;2024 by Developer • Generated on Jan. 19, 2024 22:54 PM</h6>
+</center>
+</body>
+</html>

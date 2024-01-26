@@ -1,0 +1,31 @@
+body {
+    background-color: #F0F4F8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1, h3 {
+    color: #005f73;
+    text-align: center;
+}
+.vericaltext {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: top;
+}
+th > a {
+    color: #FFFFFF;
+}
+th {
+    background-color: #005f73;
+    color: #f1faee;
+}
+tr:nth-child(even) {
+    background-color: #a8dadc;
+}
+tr:nth-child(odd) {
+    background-color: #457b9d;
+}

@@ -1,0 +1,398 @@
+<html><head><meta name="description" content="OutputUtil developed by LT. Executed by /Users/kashfi/PycharmProjects/pythonProject">
+<style>body {
+    background-color: #F0F4F8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1, h3 {
+    color: #005f73;
+    text-align: center;
+}
+.vericaltext {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}
+
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: top;
+}
+th > a {
+    color: #FFFFFF;
+}
+th {
+    background-color: #005f73;
+    color: #f1faee;
+}
+tr:nth-child(even) {
+    background-color: #a8dadc;
+}
+tr:nth-child(odd) {
+    background-color: #457b9d;
+}</style>
+<script>
+function sortTable(tableId, colNum, colType) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+  table = document.getElementById(tableId);
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[colNum];
+      y = rows[i + 1].getElementsByTagName("td")[colNum];
+      if (colType == 'N') { 
+        if (((dir == "asc") && (Number(x.innerHTML) > Number(y.innerHTML))) ||
+            ((dir == "desc") && (Number(x.innerHTML) < Number(y.innerHTML)))) {
+          shouldSwitch = true;
+          break;
+        }
+      } else {
+        if (((dir == "asc") && (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())) ||
+            ((dir == "desc") && (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()))) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchCount ++;
+    } else {
+     if (switchCount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</head>
+<body><h1>All queries for 'Assignment 6'</h1>
+<h3>Table of Contents</h3>
+<ol><li><a href="#table-Return-all-the-columns-from-the-takes-table-along-with-the-corresponding-numeric-points-for-each-grade">Return all the columns from the takes table along with the corresponding numeric points for each grade</a>
+</li>
+<li><a href="#table-Compute-the-total-number-of-grade-points-(credits-*-grade-points)-earned-by-student-X-(00128)">Compute the total number of grade points (credits * grade points) earned by student X (00128)</a>
+</li>
+<li><a href="#table-Compute-the-GPA---i.e.-total-grade-points-/-total-credits----for-the-same-student-in-the-previous-question.">Compute the GPA - i.e. total grade points / total credits -  for the same student in the previous question.</a>
+</li>
+<li><a href="#table-Find-the-GPA-of-all-students,-i.e.-not-just-for-one-student-at-a-time.">Find the GPA of all students, i.e. not just for one student at a time.</a>
+</li>
+<li><a href="#table-Display-the-student-IDs-and-their-corresponding-GPAs">Display the student IDs and their corresponding GPAs</a>
+</li>
+</ol>
+<h3>Return all the columns from the takes table along with the corresponding numeric points for each grade</h3>
+<table id="table-Return-all-the-columns-from-the-takes-table-along-with-the-corresponding-numeric-points-for-each-grade" style="width:100%"><th><a href="javascript:sortTable('table-Return-all-the-columns-from-the-takes-table-along-with-the-corresponding-numeric-points-for-each-grade', 0, 'N')"">ID</a>
+</th>
+<th><a href="javascript:sortTable('table-Return-all-the-columns-from-the-takes-table-along-with-the-corresponding-numeric-points-for-each-grade', 1, 'S')"">course_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Return-all-the-columns-from-the-takes-table-along-with-the-corresponding-numeric-points-for-each-grade', 2, 'N')"">sec_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Return-all-the-columns-from-the-takes-table-along-with-the-corresponding-numeric-points-for-each-grade', 3, 'S')"">semester</a>
+</th>
+<th><a href="javascript:sortTable('table-Return-all-the-columns-from-the-takes-table-along-with-the-corresponding-numeric-points-for-each-grade', 4, 'S')"">year</a>
+</th>
+<th><a href="javascript:sortTable('table-Return-all-the-columns-from-the-takes-table-along-with-the-corresponding-numeric-points-for-each-grade', 5, 'S')"">grade</a>
+</th>
+<th><a href="javascript:sortTable('table-Return-all-the-columns-from-the-takes-table-along-with-the-corresponding-numeric-points-for-each-grade', 6, 'S')"">points</a>
+</th>
+<tr><td style="text-align:right;">00128</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">12345</td>
+<td style="text-align:left;">CS-190</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">12345</td>
+<td style="text-align:left;">CS-315</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">12345</td>
+<td style="text-align:left;">CS-347</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">76543</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">76543</td>
+<td style="text-align:left;">CS-319</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">98988</td>
+<td style="text-align:left;">BIO-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Summer</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">00128</td>
+<td style="text-align:left;">CS-347</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A-</td>
+<td style="text-align:left;">3.7</td>
+</tr>
+<tr><td style="text-align:right;">54321</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A-</td>
+<td style="text-align:left;">3.7</td>
+</tr>
+<tr><td style="text-align:right;">55739</td>
+<td style="text-align:left;">MU-199</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">A-</td>
+<td style="text-align:left;">3.7</td>
+</tr>
+<tr><td style="text-align:right;">19991</td>
+<td style="text-align:left;">HIS-351</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B</td>
+<td style="text-align:left;">3.0</td>
+</tr>
+<tr><td style="text-align:right;">45678</td>
+<td style="text-align:left;">CS-319</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B</td>
+<td style="text-align:left;">3.0</td>
+</tr>
+<tr><td style="text-align:right;">98765</td>
+<td style="text-align:left;">CS-315</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B</td>
+<td style="text-align:left;">3.0</td>
+</tr>
+<tr><td style="text-align:right;">44553</td>
+<td style="text-align:left;">PHY-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">B-</td>
+<td style="text-align:left;">2.7</td>
+</tr>
+<tr><td style="text-align:right;">45678</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B+</td>
+<td style="text-align:left;">3.3</td>
+</tr>
+<tr><td style="text-align:right;">54321</td>
+<td style="text-align:left;">CS-190</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">B+</td>
+<td style="text-align:left;">3.3</td>
+</tr>
+<tr><td style="text-align:right;">12345</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">C</td>
+<td style="text-align:left;">2.0</td>
+</tr>
+<tr><td style="text-align:right;">76653</td>
+<td style="text-align:left;">EE-181</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">C</td>
+<td style="text-align:left;">2.0</td>
+</tr>
+<tr><td style="text-align:right;">98765</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">C-</td>
+<td style="text-align:left;">1.7</td>
+</tr>
+<tr><td style="text-align:right;">23121</td>
+<td style="text-align:left;">FIN-201</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">C+</td>
+<td style="text-align:left;">2.3</td>
+</tr>
+<tr><td style="text-align:right;">45678</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">F</td>
+<td style="text-align:left;">0.0</td>
+</tr>
+</table>
+<h3>Compute the total number of grade points (credits * grade points) earned by student X (00128)</h3>
+<table id="table-Compute-the-total-number-of-grade-points-(credits-*-grade-points)-earned-by-student-X-(00128)" style="width:100%"><th><a href="javascript:sortTable('table-Compute-the-total-number-of-grade-points-(credits-*-grade-points)-earned-by-student-X-(00128)', 0, 'S')"">total_grade_points</a>
+</th>
+<tr><td style="text-align:left;">27.1</td>
+</tr>
+</table>
+<h3>Compute the GPA - i.e. total grade points / total credits -  for the same student in the previous question.</h3>
+<table id="table-Compute-the-GPA---i.e.-total-grade-points-/-total-credits----for-the-same-student-in-the-previous-question." style="width:100%"><th><a href="javascript:sortTable('table-Compute-the-GPA---i.e.-total-grade-points-/-total-credits----for-the-same-student-in-the-previous-question.', 0, 'S')"">GPA</a>
+</th>
+<tr><td style="text-align:left;">3.87143</td>
+</tr>
+</table>
+<h3>Find the GPA of all students, i.e. not just for one student at a time.</h3>
+<table id="table-Find-the-GPA-of-all-students,-i.e.-not-just-for-one-student-at-a-time." style="width:100%"><th><a href="javascript:sortTable('table-Find-the-GPA-of-all-students,-i.e.-not-just-for-one-student-at-a-time.', 0, 'N')"">ID</a>
+</th>
+<th><a href="javascript:sortTable('table-Find-the-GPA-of-all-students,-i.e.-not-just-for-one-student-at-a-time.', 1, 'S')"">total_grade_points</a>
+</th>
+<th><a href="javascript:sortTable('table-Find-the-GPA-of-all-students,-i.e.-not-just-for-one-student-at-a-time.', 2, 'S')"">total_credits</a>
+</th>
+<th><a href="javascript:sortTable('table-Find-the-GPA-of-all-students,-i.e.-not-just-for-one-student-at-a-time.', 3, 'S')"">gpa</a>
+</th>
+<tr><td style="text-align:right;">00128</td>
+<td style="text-align:left;">27.1</td>
+<td style="text-align:left;">7</td>
+<td style="text-align:left;">3.87143</td>
+</tr>
+<tr><td style="text-align:right;">12345</td>
+<td style="text-align:left;">48.0</td>
+<td style="text-align:left;">14</td>
+<td style="text-align:left;">3.42857</td>
+</tr>
+<tr><td style="text-align:right;">19991</td>
+<td style="text-align:left;">9.0</td>
+<td style="text-align:left;">3</td>
+<td style="text-align:left;">3.00000</td>
+</tr>
+<tr><td style="text-align:right;">23121</td>
+<td style="text-align:left;">6.9</td>
+<td style="text-align:left;">3</td>
+<td style="text-align:left;">2.30000</td>
+</tr>
+<tr><td style="text-align:right;">44553</td>
+<td style="text-align:left;">10.8</td>
+<td style="text-align:left;">4</td>
+<td style="text-align:left;">2.70000</td>
+</tr>
+<tr><td style="text-align:right;">45678</td>
+<td style="text-align:left;">22.2</td>
+<td style="text-align:left;">11</td>
+<td style="text-align:left;">2.01818</td>
+</tr>
+<tr><td style="text-align:right;">54321</td>
+<td style="text-align:left;">28.0</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">3.50000</td>
+</tr>
+<tr><td style="text-align:right;">55739</td>
+<td style="text-align:left;">11.1</td>
+<td style="text-align:left;">3</td>
+<td style="text-align:left;">3.70000</td>
+</tr>
+<tr><td style="text-align:right;">76543</td>
+<td style="text-align:left;">28.0</td>
+<td style="text-align:left;">7</td>
+<td style="text-align:left;">4.00000</td>
+</tr>
+<tr><td style="text-align:right;">76653</td>
+<td style="text-align:left;">6.0</td>
+<td style="text-align:left;">3</td>
+<td style="text-align:left;">2.00000</td>
+</tr>
+<tr><td style="text-align:right;">98765</td>
+<td style="text-align:left;">15.8</td>
+<td style="text-align:left;">7</td>
+<td style="text-align:left;">2.25714</td>
+</tr>
+<tr><td style="text-align:right;">98988</td>
+<td style="text-align:left;">16.0</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">2.00000</td>
+</tr>
+</table>
+<h3>Display the student IDs and their corresponding GPAs</h3>
+<table id="table-Display-the-student-IDs-and-their-corresponding-GPAs" style="width:100%"><th><a href="javascript:sortTable('table-Display-the-student-IDs-and-their-corresponding-GPAs', 0, 'N')"">id</a>
+</th>
+<th><a href="javascript:sortTable('table-Display-the-student-IDs-and-their-corresponding-GPAs', 1, 'S')"">gpa</a>
+</th>
+<tr><td style="text-align:right;">00128</td>
+<td style="text-align:left;">3.87143</td>
+</tr>
+<tr><td style="text-align:right;">12345</td>
+<td style="text-align:left;">3.42857</td>
+</tr>
+<tr><td style="text-align:right;">19991</td>
+<td style="text-align:left;">3.00000</td>
+</tr>
+<tr><td style="text-align:right;">23121</td>
+<td style="text-align:left;">2.30000</td>
+</tr>
+<tr><td style="text-align:right;">44553</td>
+<td style="text-align:left;">2.70000</td>
+</tr>
+<tr><td style="text-align:right;">45678</td>
+<td style="text-align:left;">2.01818</td>
+</tr>
+<tr><td style="text-align:right;">54321</td>
+<td style="text-align:left;">3.50000</td>
+</tr>
+<tr><td style="text-align:right;">55739</td>
+<td style="text-align:left;">3.70000</td>
+</tr>
+<tr><td style="text-align:right;">76543</td>
+<td style="text-align:left;">4.00000</td>
+</tr>
+<tr><td style="text-align:right;">76653</td>
+<td style="text-align:left;">2.00000</td>
+</tr>
+<tr><td style="text-align:right;">98765</td>
+<td style="text-align:left;">2.25714</td>
+</tr>
+<tr><td style="text-align:right;">98988</td>
+<td style="text-align:left;">2.00000</td>
+</tr>
+</table>
+<center><h6>&copy;2024 by Developer • Generated on Jan. 12, 2024 16:20 PM</h6>
+</center>
+</body>
+</html>
